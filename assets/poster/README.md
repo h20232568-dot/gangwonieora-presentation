@@ -21,7 +21,7 @@ node render.js poster.svg poster.png poster.pdf 2
 
 ## 자주 바꾸는 값 (`make_poster.py`)
 - `ANG`: 대각선 각도(기본 50°), `S`: 손 크기, `GAP`: 손끝 사이 거리
-- `YOUTH`, `OWNER`: 손 안 문장과 수치 (`1`이면 굵게)
+- `YOUTH`, `OWNER`: 손 안을 채울 (설명, 수치) 목록. 수치가 `None`이면 고충 문장으로 들어갑니다
 - `YOUTH_KEY`, `OWNER_KEY`: 검지에 크게 넣는 대표 수치
 - `HAND`: 손 모양 경로(화면에 선으로 그리지 않고, 글자를 채울 영역으로만 씀). 이 경로를 바꾸면 글자로 된 손 모양이 따라 바뀝니다.
 
