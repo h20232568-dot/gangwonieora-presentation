@@ -1,5 +1,5 @@
 """강원이어라 포스터 초안 (A3 세로) 생성기
-- 두 손은 선으로 그리고, 손 안쪽을 고충 문장과 수치로 채운다 (clipPath).
+- 손 윤곽선 없이, 고충 문장과 데이터 수치의 배치만으로 손 모양을 만든다 (clipPath로 손 모양 안에만 글자를 둔다).
 - 대각선 구도: 왼쪽 아래에서 청년 창업자 손, 오른쪽 위에서 건물주 손이 뻗어 가운데에서 손끝이 만난다.
 - 손 안 글자는 팔 방향으로 기울이고, 검지에는 대표 수치를 크게 넣는다.
 - 대각선이 만드는 빈 삼각형에 글자를 둔다: 제목은 왼쪽 위, 설명은 오른쪽 아래.
@@ -68,40 +68,55 @@ def to_global(pt, side):
     return (RTIP[0] - gx, RTIP[1] + gy)
 
 
-# 손 안을 채울 말 (목소리 + 수치). 수치는 굵게
+# 손 안을 채울 말: (설명, 수치). 수치는 크고 굵게, 설명은 작게. 수치가 None이면 고충 문장
 YOUTH = [
-    ("보증금이 너무 커요", 0), ("20대 순유출 11,916명", 1), ("1년 계약은 부담돼요", 0),
-    ("딱 2주만 해 보고 싶어요", 0), ("30세 미만 창업 −6.6%", 1), ("실패하면 어떡하죠", 0),
-    ("창업 장애 1위 자금 확보 53.7%", 1), ("공간은 어디서 찾죠", 0), ("공간 지원 54.5%", 1),
-    ("작게 시작하고 싶어요", 0), ("실패 두려움 45.9%", 1), ("수도권으로 가야 하나", 0),
+    ("강원 20대 순유출", "11,916명"), ("보증금이 너무 커요", None), ("30세 미만 창업", "−6.6%"),
+    ("창업 장애 1위 자금 확보", "53.7%"), ("1년 계약은 부담돼요", None), ("실패 두려움", "45.9%"),
+    ("강원 창업기업", "31,886개"), ("딱 2주만 해 보고 싶어요", None), ("전년 대비", "−4.5%"),
+    ("원하는 지원: 공간", "54.5%"), ("실패하면 어떡하죠", None), ("신생기업 5년 생존율", "36.5%"),
+    ("같은 기간 전 연령 순유출", "1,991명"), ("공간은 어디서 찾죠", None),
 ]
 OWNER = [
-    ("다음 임차인은 언제 올까", 0), ("명동 공실률 27.0%", 1), ("비어 있는 동안 수입이 없어요", 0),
-    ("강원 중대형 공실률 19.3%", 1), ("짧게 빌려줬다가 망가지면요?", 0), ("투자수익률 0.15%", 1),
-    ("단기 계약은 번거로워요", 0), ("전국과의 격차 12.7%p", 1), ("관리비는 계속 나가요", 0),
-    ("빌딩 거래 약 30% 감소", 1), ("원주 중앙·일산 36.8%", 1), ("불 꺼진 1층이 늘어요", 0),
+    ("춘천 명동 공실률", "27.0%"), ("다음 임차인은 언제 올까", None), ("강원 중대형 공실률", "19.3%"),
+    ("전국과의 격차", "12.7%p"), ("비어 있는 동안 수입이 없어요", None), ("투자수익률", "0.15%"),
+    ("자본수익률", "−0.57%"), ("짧게 빌려줬다가 망가지면요?", None), ("원주 중앙·일산", "36.8%"),
+    ("빌딩 거래", "약 30%↓"), ("단기 계약은 번거로워요", None), ("3분기 거래", "129건"),
+    ("명동 2021 → 2026", "18.5→27.0%"), ("불 꺼진 1층이 늘어요", None),
 ]
 # 검지(대표 수치)와 손목 쪽(짧은 설명)
-YOUTH_KEY = ("11,916명", "강원 20대 순유출 · 3년")
-OWNER_KEY = ("27.0%", "춘천 명동 공실률")
+YOUTH_KEY = ("11,916명", "")
+OWNER_KEY = ("27.0%", "")
 
 
 def text_rows(items, x0, y0, y1, color, seed):
-    """회전 전 좌표계에서 가로줄 텍스트로 채운다. 세 줄마다 큰 글씨."""
-    rows, y, k = [], y0, seed
+    """회전 전 좌표계에서 빈틈없이 채운다.
+    작은 줄 두 줄(설명+수치, 같은 크기) 다음에 수치만 큰 줄 한 줄이 오는 리듬.
+    글자가 작고 촘촘할수록 손 모양 가장자리가 또렷해진다."""
+    rows, y, k, line = [], y0, seed, 0
     while y < y1:
-        big = (k % 3 == 0)
-        size = 30 if big else 19
-        y += size + 8
+        big = (line % 3 == 2)
         parts = []
-        for n in range(14):
-            t, strong = items[(k + n) % len(items)]
-            w = "800" if strong else "500"
-            op = "0.85" if strong else "0.5"
-            parts.append(f'<tspan font-weight="{w}" fill-opacity="{op}">{t}</tspan>')
-        sep = '<tspan fill-opacity="0.25"> · </tspan>'
-        rows.append(f'<text x="{x0:.1f}" y="{y:.1f}" font-size="{size}" fill="{color}">{sep.join(parts)}</text>')
-        k += 5
+        if big:
+            size = 34
+            y += size - 2
+            for n in range(26):
+                label, num = items[(k + n) % len(items)]
+                if num:
+                    parts.append(f'<tspan font-weight="900">{num}</tspan>')
+            body = '<tspan fill-opacity="0.35"> · </tspan>'.join(parts)
+        else:
+            size = 15
+            y += size + 1
+            for n in range(40):
+                label, num = items[(k + n) % len(items)]
+                if num:
+                    parts.append(f'<tspan font-weight="600" fill-opacity="0.8">{label} </tspan><tspan font-weight="900">{num}</tspan>')
+                else:
+                    parts.append(f'<tspan font-weight="500" fill-opacity="0.7">“{label}”</tspan>')
+            body = " ".join(parts)
+        rows.append(f'<text x="{x0:.1f}" y="{y:.1f}" font-size="{size}" fill="{color}" letter-spacing="-0.3">{body}</text>')
+        k += 2
+        line += 1
     return "\n".join(rows)
 
 
@@ -109,9 +124,9 @@ def key_number(side, key, color, fill):
     """검지 안에 대표 수치를 크게, 손목 쪽에 짧은 설명 (팔 방향으로 기울임, 바탕색 테두리로 또렷하게)."""
     fx, fy = to_global(FINGER_MID, side)
     bx, by = to_global(BACK_MID, side)
-    halo = f'stroke="{fill}" stroke-width="12" stroke-linejoin="round" paint-order="stroke"'
+    halo = f'stroke="{fill}" stroke-width="5" stroke-linejoin="round" paint-order="stroke"'
     return (f'<text x="{fx:.1f}" y="{fy:.1f}" transform="rotate({-ANG} {fx:.1f} {fy:.1f})" text-anchor="middle" '
-            f'dominant-baseline="central" font-size="50" font-weight="900" fill="{color}" {halo}>{key[0]}</text>'
+            f'dominant-baseline="central" font-size="64" font-weight="900" fill="{color}" {halo}>{key[0]}</text>'
             f'<text x="{bx:.1f}" y="{by:.1f}" transform="rotate({-ANG} {bx:.1f} {by:.1f})" text-anchor="middle" '
             f'dominant-baseline="central" font-size="26" font-weight="800" fill="{color}" {halo}>{key[1]}</text>')
 
@@ -156,22 +171,16 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" v
 <ellipse cx="{CX}" cy="{CY}" rx="320" ry="300" fill="url(#glow)"/>
 
 <!-- 왼쪽 아래: 청년 창업자 손 -->
-<use href="#hand" transform="{tf_left()}" fill="{FILL_L}"/>
 <g clip-path="url(#clipL)">
   <g transform="rotate({-ANG} {LC[0]:.1f} {LC[1]:.1f})">{text_rows(YOUTH, LC[0] - 1300, LC[1] - 260, LC[1] + 260, BLUE, 0)}</g>
-  {key_number("L", YOUTH_KEY, BLUE, FILL_L)}
+  {key_number("L", YOUTH_KEY, BLUE, PAPER)}
 </g>
-<use href="#hand" transform="{tf_left()}" {outline}/>
-<g transform="{tf_left()}" {detail_style}>{details}</g>
 
 <!-- 오른쪽 위: 건물주 손 -->
-<use href="#hand" transform="{tf_right()}" fill="{FILL_R}"/>
 <g clip-path="url(#clipR)">
   <g transform="rotate({-ANG} {RC[0]:.1f} {RC[1]:.1f})">{text_rows(OWNER, RC[0] - 700, RC[1] - 260, RC[1] + 260, NAVY, 2)}</g>
-  {key_number("R", OWNER_KEY, NAVY, FILL_R)}
+  {key_number("R", OWNER_KEY, NAVY, PAPER)}
 </g>
-<use href="#hand" transform="{tf_right()}" {outline}/>
-<g transform="{tf_right()}" {detail_style}>{details}</g>
 
 <!-- 손끝 사이 타이틀 -->
 <text x="{CX}" y="{CY - 8}" text-anchor="middle" font-size="72" font-weight="800" fill="{INK}">강원</text>
