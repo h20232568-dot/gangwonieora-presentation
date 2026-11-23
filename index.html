@@ -353,6 +353,88 @@ main:focus { outline: none; }
 .data-card .big small { font-size: 0.45em; margin-left: 2px; }
 .data-card.wide { grid-column: 1 / -1; }
 .policy-card { background: var(--blue-50); }
+/* ---- 시기별 트렌드 (06장) ---- */
+.data-card.wide { grid-column: 1 / -1; }
+.tcols { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding-top: 22px; border-bottom: 1px solid var(--g300); }
+.tcol { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; font-variant-numeric: tabular-nums; position: relative; }
+.tcol b { font-size: 12px; font-weight: 700; color: var(--g700); }
+.tcol i { display: block; width: 100%; max-width: 40px; border-radius: 6px 6px 0 0; background: var(--blue-100); min-height: 2px; }
+.tcol.y26 i { background: var(--blue); }
+.tcol.y26 b { color: var(--blue-d); }
+.tcol.est i { background: repeating-linear-gradient(135deg, var(--blue) 0 4px, var(--blue-100) 4px 7px); border: 1.5px dashed var(--blue); border-bottom: 0; }
+.tcol span { position: absolute; bottom: -22px; font-size: 11.5px; color: var(--g600); white-space: nowrap; }
+.tcol small { position: absolute; bottom: -38px; font-size: 10.5px; color: var(--g400); white-space: nowrap; }
+.tcol em { font-style: normal; font-size: 10px; font-weight: 700; color: #a86b00; background: #fff4d6; border-radius: 4px; padding: 0 4px; }
+.tcols + .cols-legend { margin-top: 44px; }
+.tcross { display: grid; gap: 14px; }
+.tcat p { font-size: 14.5px; font-weight: 700; color: var(--g900); display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.trow { display: grid; grid-template-columns: 44px 1fr 96px; align-items: center; gap: 8px; font-size: 12.5px; }
+.trow small { color: var(--g600); }
+.trow b { font-size: 12.5px; color: var(--g800); text-align: right; font-variant-numeric: tabular-nums; }
+.tline { position: relative; height: 14px; }
+.tline::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: var(--g200); border-radius: 2px; }
+.tline u { position: absolute; top: 6px; height: 2px; background: var(--blue-100); }
+.tline i { position: absolute; top: 2px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--g400); box-shadow: 0 0 0 2px var(--g50); z-index: 1; }
+.tline i.b { background: var(--blue); }
+.tbadge { display: inline-flex; align-items: center; font-size: 11.5px; font-weight: 700; border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
+.tbadge.up { background: var(--blue-50); color: var(--blue-d); }
+.tbadge.new { background: #fff4d6; color: #7a4e00; }
+.tbadge.flat { background: var(--g100); color: var(--g700); }
+.tbadge.down { background: var(--g200); color: var(--g800); }
+.klabel { font-size: 13px; font-weight: 700; color: var(--g600); }
+.kchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.kchip { display: inline-flex; align-items: baseline; gap: 5px; background: #fff; border: 1px solid var(--g200); border-radius: 999px; padding: 5px 11px; font-size: 14px; font-weight: 600; color: var(--g900); }
+.kchip small { font-size: 11px; font-weight: 500; color: var(--g500); font-variant-numeric: tabular-nums; }
+.kchip.up { border-color: var(--blue-100); background: var(--blue-50); }
+.kchip.down { color: var(--g600); }
+.kchip.tag { color: var(--blue-d); }
+.tseason { display: grid; gap: 8px; }
+.tseason div { display: grid; gap: 2px; background: #fff; border-radius: var(--r-sm); padding: 10px 14px; }
+.tseason b { font-size: 13.5px; color: var(--g900); }
+.tseason span { font-size: 14px; color: var(--g700); }
+.tpain { display: grid; gap: 8px; }
+.tpain div { display: grid; grid-template-columns: 92px 1fr 48px; align-items: center; gap: 8px; font-size: 13.5px; color: var(--g700); }
+.tpain .track { height: 10px; background: var(--g200); border-radius: 5px; overflow: hidden; }
+.tpain .track i { display: block; height: 100%; background: var(--blue-100); border-radius: 5px; }
+.tpain .hl .track i { background: var(--blue); }
+.tpain b { text-align: right; color: var(--g900); font-variant-numeric: tabular-nums; }
+.trend-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--g900); color: #fff; border-radius: var(--r); padding: 18px 22px; margin-top: 18px; }
+.trend-cta p { font-size: 15.5px; font-weight: 600; line-height: 1.6; flex: 1 1 320px; }
+/* ---- 트렌드 추천 화면 ---- */
+.tform { display: grid; gap: 18px; background: var(--g50); border-radius: var(--r-lg); padding: 24px; margin-bottom: 20px; }
+.tlabel { font-size: 13.5px; font-weight: 700; color: var(--g600); margin-bottom: 8px; }
+.trow2 { display: flex; gap: 28px; flex-wrap: wrap; }
+.tselect { height: 36px; border-radius: 10px; border: 1px solid var(--g300); padding: 0 12px; font: inherit; font-size: 14px; background: #fff; }
+.tres { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.tcard { background: var(--g50); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; }
+.tcard h3 { font-size: 17px; }
+.tcard.tmain { grid-column: 1 / -1; grid-template-columns: auto 1fr; gap: 20px; align-items: center; background: var(--blue-50); }
+.tscore { display: grid; justify-items: center; width: 96px; height: 96px; align-content: center; border-radius: 50%; background: #fff; }
+.tscore b { font-size: 32px; color: var(--blue-d); line-height: 1; }
+.tscore span { font-size: 11.5px; color: var(--g600); }
+.tpains { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.tpains li { display: grid; gap: 2px; font-size: 14px; }
+.tpains b { color: var(--g900); }
+.tpains span { color: var(--g700); }
+.tspaces { display: grid; gap: 8px; }
+.tspaces a { display: grid; gap: 2px; background: #fff; border-radius: var(--r-sm); padding: 12px 14px; }
+.tspaces a:hover { background: var(--g100); }
+.tspaces span { font-size: 13px; color: var(--g600); }
+.tcard .btn { justify-self: start; }
+.trend-hint { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; background: var(--g50); border-radius: var(--r); padding: 14px 16px; font-size: 14px; color: var(--g700); }
+.trend-hint:hover { background: var(--g100); }
+.trend-hint .more { color: var(--blue-d); font-weight: 700; white-space: nowrap; }
+@media (max-width: 720px) {
+  .tres { grid-template-columns: minmax(0, 1fr); }
+  .tcard.tmain { grid-template-columns: minmax(0, 1fr); }
+  .tcols { gap: 4px; }
+  .tcol span { font-size: 10px; }
+  .tcol small { display: none; }
+  .trend-hint { grid-template-columns: minmax(0, 1fr); }
+}
+.tnote { margin: 28px 0 96px; font-size: 13px; line-height: 1.6; color: var(--g600); }
+.tform .filters { flex-wrap: wrap; overflow: visible; }
+.tform .chip { white-space: nowrap; flex-shrink: 0; }
 .dkpi { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
 .dkpi .k { background: var(--g50); border-radius: var(--r); padding: 20px; display: grid; gap: 6px; align-content: start; }
 .dkpi .k .who { font-size: 13px; font-weight: 700; color: var(--g500); }
@@ -914,6 +996,7 @@ main:focus { outline: none; }
     <nav class="topnav" aria-label="주요 메뉴">
       <a href="#/spaces" data-nav="spaces">공간 찾기</a>
       <a href="#/request" data-nav="request">한 줄 요청</a>
+      <a href="#/trend" data-nav="trend">트렌드 추천</a>
       <a href="#/data" data-nav="data">왜 강원이어라인가</a>
       <a href="#/roadmap" data-nav="roadmap">로드맵</a>
     </nav>
@@ -1773,6 +1856,7 @@ pages.request = () => ({
               </span>
               <span class="score"><b>${t.score}%</b><span>잘 맞아요</span></span>
             </a>`).join("")}
+          ${trendHint(q.use)}
           <div class="proposal" style="margin-top:12px">
             <div class="proposal-head"><h3 style="font-size:19px">건물주에게 보낼 제안서</h3><span class="ai-mark">✦ AI 작성</span></div>
             <div class="proposal-body caret" id="prop"></div>
@@ -1953,7 +2037,7 @@ pages.data = () => {
 
   const ct = (id, name) => `<button type="button" class="ctag" data-chap="${id}">${name}</button>`;
   const CHAPTERS = [
-    ["c1", "상가"], ["c2", "원도심"], ["c3", "건물주"], ["c4", "청년"], ["c5", "가능성"], ["c6", "정책"], ["c7", "강원이어라의 답"], ["c8", "분석 방법"]
+    ["c1", "상가"], ["c2", "원도심"], ["c3", "건물주"], ["c4", "청년"], ["c5", "가능성"], ["ctr", "트렌드"], ["c6", "정책"], ["c7", "강원이어라의 답"], ["c8", "분석 방법"]
   ];
   const head = (id, n, eyebrow, title, lead) => `<div class="dchap-head reveal"><p class="eyebrow">${n} · ${eyebrow}</p><h2 class="title-lg">${title}</h2>${lead ? `<p class="lead">${lead}</p>` : ""}</div>`;
 
@@ -1962,7 +2046,7 @@ pages.data = () => {
       <div class="page-head">
         <p class="eyebrow" style="margin:0">왜 강원이어라인가</p>
         <h1 class="title-lg">상가는 비고, 청년은 떠나요.<br>둘을 이으면 원도심이 다시 켜져요</h1>
-        <p class="sub">공개 통계와 보도 자료로 강원 원도심의 문제와 가능성을 정리했어요. 출처는 카드마다 아래에 적었고, 자료를 다룬 방법과 한계는 <button type="button" data-chap="c8" style="color:var(--blue);font-weight:600;font-size:inherit;padding:0">08 분석 방법</button>에 정리했어요.</p>
+        <p class="sub">공개 통계와 보도 자료로 강원 원도심의 문제와 가능성을 정리했어요. 출처는 카드마다 아래에 적었고, 자료를 다룬 방법과 한계는 <button type="button" data-chap="c8" style="color:var(--blue);font-weight:600;font-size:inherit;padding:0">09 분석 방법</button>에 정리했어요.</p>
         <div class="dkpi">
           <div class="k hl reveal"><span class="who">상가</span><span class="n">27.0<small>%</small></span><p>춘천 명동 중대형 상가 공실률</p></div>
           <div class="k reveal" style="--d:.08s"><span class="who">건물주</span><span class="n">0.15<small>%</small></span><p>강원 중대형 상가 분기 수익률 (전국 0.78%)</p></div>
@@ -2093,8 +2177,10 @@ pages.data = () => {
         <p class="takeaway reveal">창업은 시작되지만 키워 갈 기반은 약해요. 부담 없이 먼저 시험해 볼 수 있는 단계가 도움이 될 수 있어요.</p>
       </section>
 
+      ${trendChapter(head, ct)}
+
       <section class="dchap" id="c6">
-        ${head("c6", "06", "정책", "정부도 같은 방향으로 움직여요", "빈 상가를 청년 창업 공간으로 바꾸는 국가 사업이 2027년부터 시작돼요. 방향은 같고, 시기는 지금이에요.")}
+        ${head("c6", "07", "정책", "정부도 같은 방향으로 움직여요", "빈 상가를 청년 창업 공간으로 바꾸는 국가 사업이 2027년부터 시작돼요. 방향은 같고, 시기는 지금이에요.")}
         <div class="data-grid">
           <div class="data-card policy-card reveal">
             <h3>원도심 RE:CORE 프로젝트</h3>
@@ -2121,7 +2207,7 @@ pages.data = () => {
       </section>
 
       <section class="dchap" id="c7">
-        ${head("c7", "07", "강원이어라의 답", "그래서, 비어 있는 기간을 잇습니다", "강원이어라는 다음 임차인을 기다리는 빈 상가를 하루~4주 단위로 청년 창업자에게 연결해요. 앞에서 본 문제에 대한 서비스의 기대 효과예요. 실제 효과는 운영과 설문으로 확인할 예정이에요.")}
+        ${head("c7", "08", "강원이어라의 답", "그래서, 비어 있는 기간을 잇습니다", "강원이어라는 다음 임차인을 기다리는 빈 상가를 하루~4주 단위로 청년 창업자에게 연결해요. 앞에서 본 문제에 대한 서비스의 기대 효과예요. 실제 효과는 운영과 설문으로 확인할 예정이에요.")}
         <div class="bridge">
           <div class="bcard reveal">
             <span class="who">청년 창업자</span>
@@ -2156,7 +2242,7 @@ pages.data = () => {
       </section>
 
       <section class="dchap" id="c8">
-        ${head("c8", "08", "분석 방법", "숫자는 이렇게 다뤘어요", "수업에서 배운 데이터 개념을 이 자료에 그대로 적용했어요. 위 카드에 붙은 개념 태그를 누르면 이곳으로 이어져요.")}
+        ${head("c8", "09", "분석 방법", "숫자는 이렇게 다뤘어요", "수업에서 배운 데이터 개념을 이 자료에 그대로 적용했어요. 위 카드에 붙은 개념 태그를 누르면 이곳으로 이어져요.")}
         <div class="data-grid">
           <div class="data-card mcard reveal" id="m13">
             <span class="mtag">정규화</span>
@@ -2216,6 +2302,17 @@ pages.data = () => {
               <li><b>비교</b> 강원 vs 전국은 짝 막대. 강원만 파란색으로 강조했어요.</li>
               <li><b>증감</b> 늘고 준 것은 0을 기준으로 양쪽에 그리고, 모든 막대를 같은 눈금(−10~+40%)으로 그렸어요.</li>
               <li><b>원그래프는 쓰지 않았어요</b> 항목이 많고 값 차이가 작아 읽기 어렵기 때문이에요.</li>
+            </ul>
+          </div>
+          <div class="data-card mcard wide reveal" id="m22">
+            <span class="mtag">TF-IDF · 분석 단위 · 데이터 결합</span>
+            <h3>블로그와 유튜브는 섞지 않고, 같은 규칙으로 나란히 봤어요</h3>
+            <p class="sub">블로그(후기)와 댓글(의견)은 글의 성격이 달라요. 하나로 합치면 글이 많은 블로그가 결과를 덮어요. 그래서 <b>문서 = 출처 × 연도</b>(블로그 2025·2026, 유튜브 영상 2025·2026, 댓글) 5개로 나눠 TF-IDF를 계산했어요.</p>
+            <ul class="mlist">
+              <li><b>같은 전처리</b> 모든 출처에 같은 형태소 분석(Kiwi 일반명사)과 같은 불용어를 썼어요. 가게 이름·‘라스트오더’ 같은 영업 안내는 뺐어요.</li>
+              <li><b>건수 대신 비율</b> 블로그 703건과 영상 42개를 비교하려고 ‘단어가 나온 글·영상의 비율’로 바꿨어요.</li>
+              <li><b>늘었다의 기준</b> 2025년과 2026년 비율 차이를 검정해 95% 수준에서 의미 있는 단어만 ‘뜨는 단어’로 골랐어요.</li>
+              <li><b>수집 방식의 착시</b> 최신순으로만 모으면 최근 글이 많아져 ‘팝업’이 늘어난 것처럼 보였어요. 정확도순으로 다시 모아 같은 방향인지 확인했어요.</li>
             </ul>
           </div>
           <div class="data-card mcard wide reveal" id="m21">
@@ -2419,6 +2516,195 @@ pages.roadmap = focus => {
   };
 };
 
+/* ---------- 시기별 트렌드 (네이버 블로그 + 유튜브) ----------
+   TRENDS: work/combined/trends.py 결과(trends.json)를 빌드 때 그대로 넣는다.
+   - 웹사이트 '왜 강원이어라인가' 06장(trendChapter)
+   - 앱 기능 '트렌드 추천'(#/trend)과 한 줄 요청 결과의 트렌드 한 줄(trendHint)
+*/
+const TRENDS = {"collected":"2026-11","sources":{"blog_posts":1174,"youtube_videos":149,"youtube_comments":920},"quarters":[{"q":"2025Q1","posts":105,"디저트·카페":6.7,"식당·음식(닭갈비 외)":21.0,"팝업·전시·마켓":0.0,"체험·공방":0.0,"소품·편집숍":0.0},{"q":"2025Q2","posts":112,"디저트·카페":5.4,"식당·음식(닭갈비 외)":24.1,"팝업·전시·마켓":0.9,"체험·공방":0.0,"소품·편집숍":0.0},{"q":"2025Q3","posts":128,"디저트·카페":6.2,"식당·음식(닭갈비 외)":21.1,"팝업·전시·마켓":0.8,"체험·공방":1.6,"소품·편집숍":0.8},{"q":"2025Q4","posts":126,"디저트·카페":6.3,"식당·음식(닭갈비 외)":29.4,"팝업·전시·마켓":0.8,"체험·공방":0.8,"소품·편집숍":0.8},{"q":"2026Q1","posts":168,"디저트·카페":12.5,"식당·음식(닭갈비 외)":32.7,"팝업·전시·마켓":1.2,"체험·공방":1.8,"소품·편집숍":0.0},{"q":"2026Q2","posts":198,"디저트·카페":9.6,"식당·음식(닭갈비 외)":34.3,"팝업·전시·마켓":0.5,"체험·공방":1.5,"소품·편집숍":0.5},{"q":"2026Q3","posts":224,"디저트·카페":11.2,"식당·음식(닭갈비 외)":41.1,"팝업·전시·마켓":1.3,"체험·공방":1.8,"소품·편집숍":0.0},{"q":"2026Q4","posts":113,"디저트·카페":23.0,"식당·음식(닭갈비 외)":28.3,"팝업·전시·마켓":1.8,"체험·공방":0.9,"소품·편집숍":0.9}],"categories":[{"category":"디저트·카페","블로그_2025":6.2,"블로그_2026":12.9,"유튜브_2025":23.8,"유튜브_2026":37.4,"blog_change":6.7,"yt_change":13.6,"direction":"상승"},{"category":"식당·음식(닭갈비 외)","블로그_2025":24.0,"블로그_2026":35.1,"유튜브_2025":14.3,"유튜브_2026":16.8,"blog_change":11.1,"yt_change":2.5,"direction":"상승"},{"category":"팝업·전시·마켓","블로그_2025":0.6,"블로그_2026":1.1,"유튜브_2025":2.4,"유튜브_2026":12.1,"blog_change":0.5,"yt_change":9.7,"direction":"유튜브에서 상승"},{"category":"체험·공방","블로그_2025":0.6,"블로그_2026":1.6,"유튜브_2025":2.4,"유튜브_2026":6.5,"blog_change":1.0,"yt_change":4.1,"direction":"유튜브에서 상승"},{"category":"소품·편집숍","블로그_2025":0.4,"블로그_2026":0.3,"유튜브_2025":2.4,"유튜브_2026":2.8,"blog_change":-0.1,"yt_change":0.4,"direction":"유지"}],"units":{"2025":513,"2026":810},"rising":[{"term":"냉면","share_2025":0.2,"share_2026":5.7,"change_pp":5.5,"z":5.25,"category":"식당·음식(닭갈비 외)","rec":true},{"term":"초밥","share_2025":1.0,"share_2026":4.8,"change_pp":3.8,"z":3.8,"category":"식당·음식(닭갈비 외)","rec":true},{"term":"갈비탕","share_2025":0.2,"share_2026":3.0,"change_pp":2.8,"z":3.6,"category":NaN,"rec":true},{"term":"디저트","share_2025":1.2,"share_2026":4.3,"change_pp":3.2,"z":3.22,"category":"디저트·카페","rec":true},{"term":"간식","share_2025":0.2,"share_2026":2.5,"change_pp":2.3,"z":3.22,"category":NaN,"rec":true},{"term":"츄러스","share_2025":0.0,"share_2026":1.5,"change_pp":1.5,"z":2.77,"category":"디저트·카페","rec":true},{"term":"동네","share_2025":0.6,"share_2026":2.7,"change_pp":2.1,"z":2.77,"category":NaN,"rec":true},{"term":"스시","share_2025":1.0,"share_2026":3.2,"change_pp":2.2,"z":2.62,"category":"식당·음식(닭갈비 외)","rec":true},{"term":"장리단길","share_2025":0.0,"share_2026":1.2,"change_pp":1.2,"z":2.53,"category":NaN,"rec":true},{"term":"한식","share_2025":0.6,"share_2026":2.3,"change_pp":1.8,"z":2.44,"category":NaN,"rec":true},{"term":"커피","share_2025":1.4,"share_2026":3.3,"change_pp":2.0,"z":2.21,"category":"디저트·카페","rec":true},{"term":"당일치기","share_2025":1.0,"share_2026":2.7,"change_pp":1.7,"z":2.18,"category":NaN,"rec":true},{"term":"코스","share_2025":4.5,"share_2026":7.3,"change_pp":2.8,"z":2.06,"category":NaN,"rec":true},{"term":"풍경","share_2025":0.2,"share_2026":1.2,"change_pp":1.0,"z":2.03,"category":NaN,"rec":true},{"term":"비빔밥","share_2025":0.2,"share_2026":1.2,"change_pp":1.0,"z":2.03,"category":NaN,"rec":true},{"term":"카페","share_2025":5.5,"share_2026":8.4,"change_pp":2.9,"z":2.01,"category":"디저트·카페","rec":true}],"falling":[{"term":"명물","share_2025":7.6,"share_2026":3.1,"change_pp":-4.5,"z":-3.73,"category":NaN,"rec":true},{"term":"돈까스","share_2025":2.9,"share_2026":0.6,"change_pp":-2.3,"z":-3.35,"category":NaN,"rec":true},{"term":"누룽지","share_2025":1.8,"share_2026":0.1,"change_pp":-1.6,"z":-3.34,"category":NaN,"rec":true},{"term":"중국집","share_2025":1.6,"share_2026":0.2,"change_pp":-1.3,"z":-2.69,"category":NaN,"rec":true},{"term":"갈비","share_2025":12.7,"share_2026":8.4,"change_pp":-4.3,"z":-2.52,"category":NaN,"rec":true},{"term":"쌀국수","share_2025":2.7,"share_2026":1.1,"change_pp":-1.6,"z":-2.19,"category":NaN,"rec":true},{"term":"국수","share_2025":1.6,"share_2026":0.5,"change_pp":-1.1,"z":-1.99,"category":NaN,"rec":true},{"term":"숙소","share_2025":2.3,"share_2026":1.0,"change_pp":-1.4,"z":-1.96,"category":NaN,"rec":true},{"term":"레스토랑","share_2025":2.1,"share_2026":0.9,"change_pp":-1.3,"z":-1.96,"category":NaN,"rec":true}],"season":{"1":[{"term":"겨울","share":2.7,"lift":3.01,"category":null},{"term":"해장","share":2.0,"lift":2.46,"category":null},{"term":"만두국","share":2.4,"lift":2.43,"category":null},{"term":"가정식","share":2.0,"lift":2.26,"category":null},{"term":"인테리어","share":2.0,"lift":2.08,"category":null},{"term":"떡볶이","share":1.7,"lift":2.05,"category":null},{"term":"우동","share":2.4,"lift":1.98,"category":null},{"term":"파스타","share":3.8,"lift":1.66,"category":"식당·음식(닭갈비 외)"},{"term":"돈까스","share":2.4,"lift":1.58,"category":null},{"term":"라멘","share":3.4,"lift":1.51,"category":"식당·음식(닭갈비 외)"}],"2":[{"term":"장리단길","share":2.1,"lift":2.72,"category":null},{"term":"빙수","share":1.8,"lift":2.59,"category":"디저트·카페"},{"term":"신상","share":2.4,"lift":2.08,"category":null},{"term":"공간","share":3.8,"lift":2.02,"category":null},{"term":"술집","share":2.1,"lift":1.95,"category":"식당·음식(닭갈비 외)"},{"term":"츄러스","share":1.5,"lift":1.62,"category":"디저트·카페"}],"3":[{"term":"육회","share":1.6,"lift":2.6,"category":null},{"term":"뷔페","share":1.6,"lift":2.31,"category":null},{"term":"비빔밥","share":1.8,"lift":2.21,"category":null},{"term":"갈비탕","share":3.4,"lift":1.81,"category":null},{"term":"닭고기","share":1.6,"lift":1.74,"category":"식당·음식(닭갈비 외)"},{"term":"냉면","share":6.0,"lift":1.7,"category":"식당·음식(닭갈비 외)"},{"term":"한식","share":2.6,"lift":1.58,"category":null},{"term":"돈까스","share":2.4,"lift":1.56,"category":null}],"4":[{"term":"가을","share":2.6,"lift":3.81,"category":null},{"term":"케이블카","share":1.9,"lift":3.21,"category":null},{"term":"풍경","share":2.3,"lift":2.72,"category":null},{"term":"츄러스","share":1.9,"lift":2.14,"category":"디저트·카페"},{"term":"간식","share":3.2,"lift":2.04,"category":null},{"term":"당일치기","share":3.6,"lift":1.74,"category":null},{"term":"고기","share":1.9,"lift":1.61,"category":"식당·음식(닭갈비 외)"},{"term":"갈비","share":15.9,"lift":1.58,"category":null},{"term":"동네","share":2.9,"lift":1.54,"category":null},{"term":"커피","share":3.9,"lift":1.51,"category":"디저트·카페"}]},"comment_themes":[{"theme":"가격·가성비","share":19.6},{"theme":"맛·품질","share":10.7},{"theme":"예산·행정","share":5.3},{"theme":"주차·교통","share":4.8},{"theme":"청년·새 가게","share":3.0},{"theme":"다른 지역·대안","share":2.8},{"theme":"친절·서비스","share":1.8},{"theme":"임대료·건물주","share":1.3},{"theme":"볼거리·콘텐츠 부족","share":0.8}]};
+
+// 공간 용도(SPACES.uses) → 트렌드 업종 묶음
+const USE_CAT = { 디저트: "디저트·카페", 카페: "디저트·카페", 전시: "팝업·전시·마켓", 플리마켓: "팝업·전시·마켓", 굿즈: "팝업·전시·마켓", 클래스: "체험·공방", 공방: "체험·공방", 쇼룸: "소품·편집숍" };
+const DIR_LABEL = {
+  "상승": ["뜨는 중", "up"], "유튜브에서 상승": ["막 뜨기 시작", "new"], "블로그에서 상승": ["막 뜨기 시작", "new"],
+  "유지": ["아직 조용해요", "flat"], "엇갈림": ["신호가 엇갈려요", "flat"], "하락": ["줄어드는 중", "down"]
+};
+const SEASON = {
+  1: { name: "1~3월 · 겨울", tip: "추운 날 실내에서 오래 머무는 손님이 많아요. 따뜻한 간식이나 실내 체험을 함께 준비해 보세요." },
+  2: { name: "4~6월 · 봄", tip: "장리단길 산책과 ‘신상’ 가게 찾기가 늘어요. 새로 연 가게라는 점을 앞세우고 빙수·시원한 음료를 시작하기 좋아요." },
+  3: { name: "7~9월 · 여름", tip: "냉면·비빔밥처럼 시원하고 가벼운 메뉴 이야기가 많아요. 더위를 피할 실내 공간이 강점이 돼요." },
+  4: { name: "10~12월 · 가을·연말", tip: "케이블카·단풍 등 당일치기 여행 코스 속에서 명동을 들르는 이야기가 늘어요. ‘코스 중간에 들르는 곳’으로 알리세요." }
+};
+const PAIN_TIP = {
+  "가격·가성비": "가격을 미리 공개하고, 맛보기·소용량 메뉴를 두세요",
+  "맛·품질": "대표 메뉴 하나를 확실하게, 재료를 보여 주세요",
+  "주차·교통": "가까운 공영주차장과 걷는 길을 안내하세요",
+  "친절·서비스": "첫 방문 손님에게 짧은 설명을 건네 보세요",
+  "예산·행정": "", "청년·새 가게": "", "다른 지역·대안": "", "임대료·건물주": "", "볼거리·콘텐츠 부족": "사진 찍을 거리, 작은 체험을 하나 더 두세요"
+};
+const catOf = use => USE_CAT[use] || "디저트·카페";
+const catRow = cat => TRENDS.categories.find(c => c.category === cat);
+const qOfMonth = m => Math.floor((m - 1) / 3) + 1;
+const pp = v => `${v > 0 ? "+" : ""}${v}%p`;
+const BASE_TAGS = { "디저트·카페": ["명동디저트", "춘천카페"], "식당·음식(닭갈비 외)": ["명동맛집"], "팝업·전시·마켓": ["춘천팝업", "명동플리마켓"], "체험·공방": ["춘천원데이클래스", "춘천공방"], "소품·편집숍": ["춘천소품샵", "춘천편집숍"] };
+const TAG_MAP = { 장리단길: "장리단길", 당일치기: "춘천당일치기", 코스: "춘천여행코스", 풍경: "춘천풍경" };
+const GENERAL = ["장리단길", "당일치기", "코스", "동네", "풍경", "케이블카", "겨울", "가을", "신상", "인테리어", "공간", "간식"];
+
+// 추천 계산 (앱에서도 그대로 쓸 수 있도록 화면과 분리한 순수 함수)
+function trendRecommend({ use, month = new Date().getMonth() + 1, days = 7 }) {
+  const cat = catOf(use);
+  const row = catRow(cat);
+  const q = qOfMonth(month);
+  const season = (TRENDS.season[q] || []);
+  // 계절 단어: 같은 업종 단어 + 업종과 상관없는 동선·계절 단어만 (예: 공방에 '만두국'은 추천하지 않음)
+  const seasonWords = [...season.filter(s => s.category === cat), ...season.filter(s => GENERAL.includes(s.term))]
+    .filter((s, i, a) => a.findIndex(x => x.term === s.term) === i).slice(0, 5);
+  const rising = TRENDS.rising.filter(r => r.category === cat || TAG_MAP[r.term]).slice(0, 6);
+  const tags = ["춘천명동", ...BASE_TAGS[cat], ...rising.map(r => TAG_MAP[r.term] || `명동${r.term}`)]
+    .filter((t, i, a) => a.indexOf(t) === i).slice(0, 7);
+  const pains = TRENDS.comment_themes.filter(t => PAIN_TIP[t.theme]).slice(0, 3).map(t => ({ ...t, tip: PAIN_TIP[t.theme] }));
+  // 점수: 업종 흐름(블로그·유튜브 변화) + 계절 단어가 같은 업종이면 가산. 0~100으로 자른다.
+  const momentum = Math.max(0, row.blog_change) * 3 + Math.max(0, row.yt_change) * 1.5;
+  const seasonBonus = season.some(s => s.category === cat) ? 10 : 0;
+  const score = Math.round(Math.min(100, 40 + momentum + seasonBonus));
+  const spaces = (typeof SPACES !== "undefined" ? SPACES : [])
+    .filter(s => s.uses.includes(use) && s.minDays <= days && s.maxDays >= Math.min(days, 28))
+    .sort((a, b) => b.fit[0][1] - a.fit[0][1]).slice(0, 2);
+  const period = days <= 3 ? "주말 1~3일 팝업으로 반응을 먼저 보세요" : days <= 14 ? "1~2주면 입소문이 돌기 시작하는 시간이에요" : "3~4주면 단골을 만들고 다음 계약을 고민해 볼 수 있어요";
+  return { use, cat, row, dir: DIR_LABEL[row.direction] || DIR_LABEL["유지"], q, season: SEASON[q], seasonWords, rising, tags, pains, score, spaces, period };
+}
+
+// 한 줄 요청 결과 아래에 붙는 트렌드 한 줄
+function trendHint(use) {
+  if (!use) return "";
+  const r = trendRecommend({ use });
+  return `<a class="trend-hint" href="#/trend/${encodeURIComponent(use)}">
+    <span class="tbadge ${r.dir[1]}">${r.dir[0]}</span>
+    <span><b>${esc(USE_LABEL[use] || use)}</b> 관련 언급: 블로그 ${r.row["블로그_2025"]}% → ${r.row["블로그_2026"]}%, 유튜브 ${r.row["유튜브_2025"]}% → ${r.row["유튜브_2026"]}%</span>
+    <span class="more">트렌드 추천 보기 ›</span></a>`;
+}
+
+// ---------- 웹사이트 06장 ----------
+function trendChapter(head, ct) {
+  const Q = TRENDS.quarters;
+  const max = Math.max(...Q.map(q => q["디저트·카페"]));
+  const cols = `<div class="tcols" role="img" aria-label="춘천 명동 블로그 글 중 디저트·카페 언급 비율: 2025년 1분기 ${Q[0]["디저트·카페"]}%에서 2026년 3분기 ${Q[6]["디저트·카페"]}%">
+    ${Q.map((q, i) => { const last = i === Q.length - 1; return `<div class="tcol${last ? " est" : ""}${q.q.startsWith("2026") ? " y26" : ""}">
+      ${last ? "<em>진행 중</em>" : ""}<b>${q["디저트·카페"]}</b><i style="height:${q["디저트·카페"] / max * 100}%"></i>
+      <span>${q.q.slice(2, 4)}.${q.q.slice(-1)}Q</span><small>${q.posts}건</small></div>`; }).join("")}</div>`;
+  const cats = TRENDS.categories.filter(c => c.category !== "소품·편집숍");
+  const arrowRow = (label, a, b) => `<span class="trow"><small>${label}</small><span class="tline"><i style="left:${Math.min(a, 40) / 40 * 100}%"></i><i class="b" style="left:${Math.min(b, 40) / 40 * 100}%"></i><u style="left:${Math.min(Math.min(a, b), 40) / 40 * 100}%;width:${Math.abs(Math.min(b, 40) - Math.min(a, 40)) / 40 * 100}%"></u></span><b>${a}→${b}%</b></span>`;
+  const chipsOf = (list, cls) => list.map(r => `<span class="kchip ${cls}">${r.term}<small>${r.share_2025}→${r.share_2026}%</small></span>`).join("");
+  return `<section class="dchap" id="ctr">
+    ${head("ctr", "06", "시기별 트렌드", "명동 이야기가 ‘닭갈비’에서 ‘디저트·새 경험’으로 넓어지고 있어요",
+      "네이버 블로그 1,174건과 유튜브 명동 영상 149개, 댓글 920개를 같은 방법으로 분석했어요. 두 출처 모두 디저트·카페 언급이 늘었고, 댓글은 ‘가격’을 가장 많이 지적했어요.")}
+    <div class="data-grid">
+      <div class="data-card wide reveal">
+        <h3>블로그 글 중 디저트·카페 언급 비율, 분기별</h3>
+        <p class="sub">2025년엔 6% 안팎이었는데, 2026년엔 <b>10% 안팎</b>으로 올랐어요.</p>
+        ${cols}
+        <p class="cols-legend"><i></i>빗금 = 2026년 4분기는 11월 23일까지만 수집해 아직 끝나지 않은 분기예요. 글이 적어(113건) 값이 크게 튈 수 있어요.</p>
+        <p class="src">네이버 블로그 검색 API(정확도순) · 춘천 명동 글만, 광고·홍보·서울 명동·중복 제외 · 2026.11.23 수집</p>
+        <div class="ctags">${ct("m12", "시간 축과 불완전 구간")}${ct("m13", "정규화")}</div>
+      </div>
+      <div class="data-card reveal">
+        <h3>두 출처에서 같은 방향인지 확인했어요</h3>
+        <p class="sub">2025년 → 2026년, 업종 단어가 나온 글·영상 비율</p>
+        <div class="tcross">${cats.map(c => `<div class="tcat"><p>${c.category} <span class="tbadge ${(DIR_LABEL[c.direction] || DIR_LABEL["유지"])[1]}">${(DIR_LABEL[c.direction] || DIR_LABEL["유지"])[0]}</span></p>
+          ${arrowRow("블로그", c["블로그_2025"], c["블로그_2026"])}${arrowRow("유튜브", c["유튜브_2025"], c["유튜브_2026"])}</div>`).join("")}</div>
+        <p class="src">블로그 ${TRENDS.sources.blog_posts.toLocaleString()}건 · 유튜브 영상 ${TRENDS.sources.youtube_videos}개(광고 표시 3개 제외). 유튜브 2025년 영상은 42개뿐이라 값이 크게 움직여요.</p>
+        <div class="ctags">${ct("m22", "TF-IDF · 분석 단위")}</div>
+      </div>
+      <div class="data-card reveal" style="--d:.1s">
+        <h3>뜨는 단어, 지는 단어</h3>
+        <p class="sub">2025년보다 2026년에 글·영상에서 <b>통계적으로 의미 있게</b> 늘거나 준 단어 (두 비율 차 검정, 95%)</p>
+        <p class="klabel">늘었어요</p><div class="kchips">${chipsOf(TRENDS.rising.slice(0, 10), "up")}</div>
+        <p class="klabel">줄었어요</p><div class="kchips">${chipsOf(TRENDS.falling.slice(0, 7), "down")}</div>
+        <p class="sub" style="font-size:14px">닭갈비 골목의 ‘명물’·‘갈비’ 대신 냉면·초밥·디저트·츄러스, 그리고 ‘장리단길’·‘당일치기’ 같은 <b>동선</b> 단어가 늘었어요.</p>
+        <p class="src">블로그+유튜브 영상, 2025년 ${TRENDS.units["2025"]}건 · 2026년 ${TRENDS.units["2026"]}건 · 가게 이름과 영업 안내 문구는 제외</p>
+      </div>
+      <div class="data-card reveal">
+        <h3>계절마다 나오는 단어가 달라요</h3>
+        <p class="sub">그 분기에 다른 분기보다 1.4배 이상 자주 나온 단어 (두 해 합산)</p>
+        <div class="tseason">${[1, 2, 3, 4].map(q => `<div><b>${SEASON[q].name}</b><span>${(TRENDS.season[q] || []).slice(0, 5).map(s => s.term).join(" · ")}</span></div>`).join("")}</div>
+        <p class="src">2년치라 계절마다 두 번씩만 관찰했어요. ‘경향’으로만 읽어 주세요.</p>
+      </div>
+      <div class="data-card reveal" style="--d:.1s">
+        <h3>댓글은 ‘가격’을 가장 많이 말해요</h3>
+        <p class="sub">명동 영상 댓글 920개 중 주제별 언급 비율</p>
+        <div class="tpain">${TRENDS.comment_themes.slice(0, 5).map((t, i) => `<div class="${i === 0 ? "hl" : ""}"><span>${t.theme}</span><span class="track"><i style="width:${t.share / 20 * 100}%"></i></span><b>${t.share}%</b></div>`).join("")}</div>
+        <p class="src">댓글은 쇠퇴를 다룬 영상에 몰려 있어 부정적인 쪽으로 기울어 있어요. ‘방문자 전체 의견’이 아니에요. 작성자 정보는 수집하지 않았어요.</p>
+        <div class="ctags">${ct("m06", "선별 편향")}</div>
+      </div>
+    </div>
+    <div class="trend-cta reveal">
+      <p>사람들은 같은 메뉴보다 <b>새로운 가게와 경험</b>을 찾고 있어요. 강원이어라는 이 흐름을 창업자에게 바로 알려 줘요.</p>
+      <a class="btn btn-primary" href="#/trend">내 아이템으로 트렌드 추천 받기 ›</a>
+    </div>
+  </section>`;
+}
+
+// ---------- 앱 기능: 트렌드 추천 ----------
+pages.trend = arg => {
+  const USES = Object.keys(USE_CAT);
+  const st = { use: arg && USE_CAT[decodeURIComponent(arg)] ? decodeURIComponent(arg) : "디저트", month: new Date().getMonth() + 1, days: 7 };
+  const DAYS = [[2, "1~3일"], [7, "1~2주"], [21, "3~4주"]];
+  return {
+    html: `<div class="container">
+      <div class="page-head">
+        <span class="ai-mark" style="justify-self:start">✦ 트렌드 추천</span>
+        <h1 class="title-lg">지금 명동에서 뭐가 뜨고 있을까요?</h1>
+        <p class="sub">하고 싶은 일과 시기를 고르면, 블로그·유튜브 데이터로 본 흐름과 준비할 것을 알려 드려요.</p>
+      </div>
+      <div class="tform">
+        <div><p class="tlabel">하고 싶은 일</p><div class="filters" id="tUse">${USES.map(u => `<button class="chip" type="button" data-use="${u}">${USE_LABEL[u] || u}</button>`).join("")}</div></div>
+        <div class="trow2">
+          <div><p class="tlabel">시작할 달</p><select id="tMonth" class="tselect">${Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}">${i + 1}월</option>`).join("")}</select></div>
+          <div><p class="tlabel">기간</p><div class="filters" id="tDays">${DAYS.map(([d, l]) => `<button class="chip" type="button" data-days="${d}">${l}</button>`).join("")}</div></div>
+        </div>
+      </div>
+      <div id="tOut" aria-live="polite"></div>
+      <p class="tnote">근거: 네이버 블로그 ${TRENDS.sources.blog_posts.toLocaleString()}건 · 유튜브 영상 ${TRENDS.sources.youtube_videos}개 · 댓글 ${TRENDS.sources.youtube_comments}개 (2025.1~2026.11, 2026.11.23 수집). 트렌드 점수는 언급 비율 변화로 만든 <b>참고 지표</b>이고 매출을 예측하지 않아요. 추천 공간은 시연용 예시 매물이에요.</p>
+    </div>`,
+    mount() {
+      const draw = () => {
+        $$("#tUse .chip").forEach(c => { const on = c.dataset.use === st.use; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+        $$("#tDays .chip").forEach(c => { const on = +c.dataset.days === st.days; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+        $("#tMonth").value = st.month;
+        const r = trendRecommend(st);
+        $("#tOut").innerHTML = `<div class="tres fade-in">
+          <div class="tcard tmain">
+            <div class="tscore"><b>${r.score}</b><span>트렌드 점수</span></div>
+            <div style="display:grid;gap:6px">
+              <p><span class="tbadge ${r.dir[1]}">${r.dir[0]}</span> <b>${esc(USE_LABEL[r.use] || r.use)}</b> · ${r.cat}</p>
+              <p class="sub">이 업종 단어가 나온 글·영상 비율이 블로그 <b>${r.row["블로그_2025"]}% → ${r.row["블로그_2026"]}%</b>(${pp(r.row.blog_change)}), 유튜브 <b>${r.row["유튜브_2025"]}% → ${r.row["유튜브_2026"]}%</b>(${pp(r.row.yt_change)})로 바뀌었어요.</p>
+              ${r.dir[1] === "flat" ? `<p class="sub">아직 경쟁이 적다는 뜻이기도 해요. 짧은 기간으로 먼저 반응을 확인해 보세요.</p>` : ""}
+            </div>
+          </div>
+          <div class="tcard"><h3>${r.season.name}에 맞춰 준비하기</h3><p class="sub">${r.season.tip}</p>
+            <div class="kchips">${r.seasonWords.map(s => `<span class="kchip">${s.term}<small>${s.lift}배</small></span>`).join("") || "<span class='muted'>이 시기에 두드러진 단어가 없어요</span>"}</div></div>
+          <div class="tcard"><h3>홍보에 쓸 키워드</h3><p class="sub">2025년보다 2026년에 많이 늘어난 단어로 만든 해시태그예요.</p>
+            <div class="kchips">${r.tags.map(t => `<span class="kchip tag">#${t}</span>`).join("")}</div>
+            <button class="btn btn-sm btn-grey" type="button" id="tCopy">해시태그 복사</button></div>
+          <div class="tcard"><h3>손님 댓글에서 배울 점</h3>
+            <ul class="tpains">${r.pains.map(p => `<li><b>${p.theme} ${p.share}%</b><span>${p.tip}</span></li>`).join("")}</ul></div>
+          <div class="tcard"><h3>기간 · 공간</h3><p class="sub">${r.period}.</p>
+            <div class="tspaces">${r.spaces.map(s => `<a href="#/space/${s.id}"><b>${esc(s.name)}</b><span>${s.floor}층 · ${s.size}평 · 일 ${won(s.price)}</span></a>`).join("") || `<span class="muted">이 기간에 맞는 예시 공간이 없어요. <a href="#/request">한 줄 요청</a>으로 찾아보세요.</span>`}</div></div>
+        </div>`;
+        const cp = $("#tCopy");
+        if (cp) cp.addEventListener("click", () => {
+          const t = r.tags.map(x => "#" + x).join(" ");
+          (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { cp.textContent = "복사했어요"; }, () => { cp.textContent = t; });
+        });
+      };
+      $("#tUse").addEventListener("click", e => { const b = e.target.closest("[data-use]"); if (b) { st.use = b.dataset.use; draw(); } });
+      $("#tDays").addEventListener("click", e => { const b = e.target.closest("[data-days]"); if (b) { st.days = +b.dataset.days; draw(); } });
+      $("#tMonth").addEventListener("change", e => { st.month = +e.target.value; draw(); });
+      draw();
+    }
+  };
+};
+
 pages.notfound = () => ({
   html: `<div class="container" style="padding:96px 0;text-align:center;display:grid;gap:16px;justify-items:center">
     <h1 class="title-lg">페이지를 찾을 수 없어요</h1>
@@ -2443,7 +2729,7 @@ function render() {
   $$("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === navKey));
   if (navKey === "kit" || navKey === "report") $('.topnav [data-nav="roadmap"]').classList.add("on");
   window.scrollTo({ top: 0, behavior: "instant" });
-  const titles = { home: "강원이어라 · 강원 원도심 빈 상가와 청년을 잇는 공간 매칭", spaces: "공간 찾기 · 강원이어라", space: "공간 상세 · 강원이어라", request: "한 줄 요청 · 강원이어라", kit: "홍보 키트 · 강원이어라", report: "성과 리포트 · 강원이어라", roadmap: "로드맵 · 강원이어라", host: "공간 등록 · 강원이어라", data: "왜 강원이어라인가 · 강원이어라" };
+  const titles = { home: "강원이어라 · 강원 원도심 빈 상가와 청년을 잇는 공간 매칭", spaces: "공간 찾기 · 강원이어라", space: "공간 상세 · 강원이어라", request: "한 줄 요청 · 강원이어라", kit: "홍보 키트 · 강원이어라", report: "성과 리포트 · 강원이어라", roadmap: "로드맵 · 강원이어라", trend: "트렌드 추천 · 강원이어라", host: "공간 등록 · 강원이어라", data: "왜 강원이어라인가 · 강원이어라" };
   document.title = titles[key] || "강원이어라";
 }
 window.addEventListener("hashchange", render);
